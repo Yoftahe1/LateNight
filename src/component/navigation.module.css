@@ -1,0 +1,149 @@
+.navigation {
+  width: 100vw;
+  padding: 10px;
+  position: fixed;
+  z-index: 5;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+}
+.blackNavigation{
+  width: 100vw;
+  padding: 10px;
+  position: fixed;
+  z-index: 5;
+  box-shadow: rgba(200, 200, 200, 0.35) 0px 5px 15px;
+  background-color: black;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line1,.line2{
+  width: 25px;
+  height: 3px;
+  background-color: gray;
+  margin-bottom: 5px;
+}
+.line3{
+  width: 25px;
+  height: 3px;
+  background-color: gray;
+}
+.close1{
+  width: 25px;
+  height: 3px;
+  background-color: gray;
+  position: sticky;
+  top: 30px;
+  transform: rotate(45deg);
+}
+.close3{
+  width: 25px;
+  height: 3px;
+  background-color: gray;
+  position: sticky;
+  top: 30px;
+  transform: rotate(-45deg);
+}
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  text-decoration: none;
+  color: gray;
+}
+.activeLogo{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  text-decoration: none;
+  color: rgb(26, 92, 235);
+}
+.links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.link {
+  color: gray;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 5px 0;
+}
+.input {
+  width: 270px;
+  height: 40px;
+  margin-right: 20px;
+  outline: none;
+  background-color: rgba(104, 104, 104, 0.363);
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  border: 0;
+  padding: 10px;
+  border-radius: 15px;
+}
+.dropDown{
+  display: none;
+  margin:0 10px;
+  padding: 5px;
+}
+.dropDownItem{
+  display: none;
+  margin: 0px 56px;
+}
+.activeLink{ 
+  color: rgb(26, 92, 235);
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: normal;
+  text-decoration: none;
+  border: none;
+}
+.dropdownForm{
+  display: none;
+}
+@media (max-width:950px) {
+    .links{
+      display: none;
+    }
+    .dropDown{
+      display: block;
+    }
+    .dropDownItem{
+      display: flex;
+      flex-direction: column;
+    }
+}
+@media (max-width:550px) {
+  .inputForm{
+    display: none;
+  }
+  .input{
+    width: 100%;
+  }
+  .dropdownForm{
+    display: block;
+  }
+}
+.inputNight{
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.moon{
+  cursor: pointer;
+  color: black;
+}
+.sun{
+  cursor: pointer;
+  color: yellow;
+}

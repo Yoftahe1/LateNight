@@ -1,0 +1,10 @@
+.trend{
+   padding-top: 61px;
+}
+.movies{
+   /* margin-top: 150px; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: hidden;
+}

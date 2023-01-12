@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useContext,useEffect} from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Trending from "./pages/trending";
+import Landing from "./pages/landing";
+import Trailer from "./pages/trailer";
+import Navigation from "./component/navigation";
+import Movie from "./pages/movie";
+import Tv from "./pages/tv";
+import Imdb from "./pages/imdb";
+import Search from "./pages/search";
+import NoFound from "./pages/404";
+import Context from "./store/contex";
+import { useLocation } from "react-router-dom";
 function App() {
+  const ctx=useContext(Context)
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={ctx.night==='true'?"nightApp":"App"}>
+      <Navigation />
+      <Routes>
+        <Route path="*" element={<NoFound/>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/trending" element={<Trending />} />
+        <Route path="/movie/:page" element={<Movie />} />
+        <Route path="/tv/:page" element={<Tv />} />
+        <Route path="/top-imdb/:page" element={<Imdb />} />
+        <Route path="/trailer" element={<Trailer />} />
+        <Route path="/search/:name/:page" element={<Search />} />
+      </Routes>
+      <div
+        style={{
+          background: "rgb(0, 255, 157,.5)",
+          color: "white",
+          textAlign: "center",
+          padding: "10px 5px",
+          fontWeight:"bold"
+        }}
+      >
+        @ all-rights reserved to Yo since 2021 to {new Date().getFullYear()} 
+      </div>
     </div>
   );
 }

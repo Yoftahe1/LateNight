@@ -1,0 +1,115 @@
+.movieContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 75px;
+  margin-bottom: 20px;
+  min-height: 100vh;
+}
+.movieGrid {
+  width: 90%;
+  display: grid;
+  gap: 15px;
+}
+.error {
+  color: gray;
+  padding: 0 5%;
+  text-align: center;
+}
+.btnContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 500px;
+}
+.nextAndBack {
+  margin: 0 10px;
+  font-size: 20px;
+  padding: 5px 10px;
+  color: rgb(0, 255, 157);
+  border: 1px solid rgb(0, 255, 157);
+  cursor: pointer;
+  background-color: transparent;
+}
+.pageNO {
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  height: 10%0px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%0px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: rgb(26, 92, 235);
+  border: 2px solid rgb(26, 92, 235);
+}
+.type {
+  align-self: self-start;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-weight: 20;
+  font-size: 30px;
+  color: gray;
+}
+.goBack {
+  width: 100px;
+  padding: 10px 0px;
+  margin-top: 10px;
+  color: rgb(26, 92, 235);
+  border: 2px solid rgb(26, 92, 235);
+  border-radius: 5px;
+  text-align: center;
+}
+@media (min-width: 1600px) {
+  .movieGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 1450px) and (max-width: 1600px) {
+  .movieGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (min-width: 1150px) and (max-width: 1450px) {
+  .movieGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 800px) and (max-width: 1150px) {
+  .movieGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 500px) and (max-width: 800px) {
+  .movieGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .movieGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  .btnContainer {
+    width: 90vw;
+  }
+  .type {
+    font-size: 30px;
+  }
+}
+@media (max-width: 450px) {
+  .type {
+    font-size: 20px;
+  }
+}

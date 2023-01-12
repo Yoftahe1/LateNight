@@ -1,0 +1,130 @@
+.youtube {
+  height: 900px;
+  padding-top: 70px;
+  margin-bottom: 20px;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+.TrailerPage {
+  display: flex;
+  justify-content: center;
+}
+.trailerDescriptionAndSimilar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.TrailerDescriptionAndImage {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.TrailerDescription{
+  width: 100%;
+}
+
+.image {
+  height: 300px;
+  border-radius: 5px;
+}
+
+h2 {
+  color: gray;
+  font-size: 45px;
+}
+.description {
+  display: flex;
+}
+.comment {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0px;
+  word-break: break-all;
+}
+h3 {
+  color: gray;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.avatar {
+  display: table;
+  min-width: 50px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: rgba(235, 170, 84, 0.671);
+  border-radius: 50%;
+}
+.avatar p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.key {
+  min-width: 100px;
+  color: rgb(0, 255, 157);
+  font-size: 15px;
+  font-weight: bold;
+}
+.value {
+  color: gray;
+  /* height: 3em;
+  line-height: 1em;
+  overflow: hidden; */
+}
+.similar {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  /* grid-auto-rows: 100px; */
+}
+@media (max-width: 1400px) {
+  .similar {
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .trailerDescriptionAndSimilar {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1200px) {
+  .similar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .youtube {
+    height: 600px;
+  }
+}
+@media (max-width: 1000px) {
+  .similar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .youtube {
+    height: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .similar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .TrailerDescriptionAndImage {
+    flex-direction: column;
+  }
+  .trailerImage {
+    display: none;
+  }
+  .youtube {
+    height: 400px;
+  }
+}
+@media (max-width: 450px) {
+  .similar {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
