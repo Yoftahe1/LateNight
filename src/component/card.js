@@ -7,20 +7,17 @@ const Card = (props) => {
   const ctx = useContext(Context);
   let src =
     "https://www.themoviedb.org/t/p/original" + props.element.poster_path;
-    function goToTrailer(){
-      let type = "movie";
-        if (props.type !== "Movie") {
-          type = "tv";
-        }
-        ctx.changeType(type);
-        ctx.changeId(props.element.id);
-        navigate("/trailer");
+  function goToTrailer() {
+    let type = "movie";
+    if (props.type !== "Movie") {
+      type = "tv";
     }
+    ctx.changeType(type);
+    ctx.changeId(props.element.id);
+    navigate("/trailer");
+  }
   return (
-    <div
-      className={styles.card}
-      onClick={goToTrailer}
-    >
+    <div className={styles.card} onClick={goToTrailer}>
       <div className={styles.description}>{props.element.overview}</div>
       <img
         className={styles.img}
@@ -29,7 +26,7 @@ const Card = (props) => {
         loading="lazy"
       />
       <div className={styles.title}>
-        {(props.element.hasOwnProperty("title"))
+        {props.element.hasOwnProperty("title")
           ? props.element.title
           : props.element.name}
         <div className={styles.ratingAndType}>

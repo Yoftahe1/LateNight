@@ -48,7 +48,7 @@
       rgb(255, 255, 255)
     ); 
 }
-.black{
+.blackFade{
     position: absolute;   
     z-index: 1;
     height: 100%;

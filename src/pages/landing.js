@@ -7,11 +7,6 @@ const Landing = () => {
   const ctx = useContext(Context);
   return (
     <div className={styles.landing}>
-      {/* <img src={poster} alt="poster" />
-      <div className={styles.siteName}>
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <p>Discover new released movies</p>
-      </div> */}
       <h1 className={styles.title}>LateNight</h1>
       <p className={ctx.night === "true" ? styles.blackDescription : styles.description}>
         LateNight is one of the best site to watch movies trailer online for

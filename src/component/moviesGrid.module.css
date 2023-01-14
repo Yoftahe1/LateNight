@@ -2,9 +2,8 @@
   width: 90%;
   margin-bottom: 20px;
   padding-bottom:20px ;
-  /* overflow: hidden; */
 }
-.show{
+.type{
   font-size: 36px;
   font-weight: bold;
   color: gray;
@@ -12,7 +11,6 @@
 }
 .grid{
     display: grid;
-    /* grid-auto-rows: 350px; */
     gap: 15px;
 }
 @media (min-width: 1600px) {

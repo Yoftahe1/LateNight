@@ -34,7 +34,9 @@ const MyCarousel = () => {
           return (
             <div key={index} className={styles.images}>
               <div
-                className={ctx.night === "true" ? styles.black : styles.fade}
+                className={
+                  ctx.night === "true" ? styles.blackFade : styles.fade
+                }
               ></div>
               <div className={styles.titleAndDescription}>
                 <div className={styles.title}>
@@ -44,7 +46,11 @@ const MyCarousel = () => {
                 </div>
                 <div className={styles.description}>{element.overview}</div>
               </div>
-              <img src={src} className="poster" alt={element.original_name} />
+              <img
+                src={src}
+                className={styles.poster}
+                alt={element.original_name}
+              />
             </div>
           );
         })}

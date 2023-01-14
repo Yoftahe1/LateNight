@@ -6,7 +6,6 @@ import Landing from "./pages/landing";
 import Trailer from "./pages/trailer";
 import Navigation from "./component/navigation";
 import Movie from "./pages/movie";
-import Tv from "./pages/tv";
 import Imdb from "./pages/imdb";
 import Search from "./pages/search";
 import NoFound from "./pages/404";
@@ -26,8 +25,8 @@ function App() {
         <Route path="*" element={<NoFound/>} />
         <Route path="/" element={<Landing />} />
         <Route path="/trending" element={<Trending />} />
-        <Route path="/movie/:page" element={<Movie />} />
-        <Route path="/tv/:page" element={<Tv />} />
+        <Route path="/movie/:page" element={<Movie type={'trending/movie'}/>} />
+        <Route path="/tv/:page" element={<Movie type={'trending/tv'}/>} />
         <Route path="/top-imdb/:page" element={<Imdb />} />
         <Route path="/trailer" element={<Trailer />} />
         <Route path="/search/:name/:page" element={<Search />} />

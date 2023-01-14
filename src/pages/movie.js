@@ -14,7 +14,7 @@ import styles from "./movie.module.css";
 
 SwiperCore.use([Pagination, Mousewheel, FreeMode]);
 
-const Tv = () => {
+const Movie = (props) => {
   const [movies, setMovies] = useState([]);
   const [totalPage, setTotalPage] = useState();
   const [width, setWidth] = useState(window.innerWidth);
@@ -22,6 +22,7 @@ const Tv = () => {
   const [error, setError] = useState();
   const params = useParams();
   const navigate = useNavigate();
+  let goto=(props.type.slice(9))
   let shimmer = [];
   for (let i = 0; i < 20; i++) {
     shimmer.push(
@@ -40,7 +41,7 @@ const Tv = () => {
     setIsShimmer(true);
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}&page=${params.page} `
+        `https://api.themoviedb.org/3/${props.type}/week?api_key=${process.env.REACT_APP_API_KEY}&page=${params.page} `
       )
       .then((response) => {
         setIsShimmer(false);
@@ -51,7 +52,7 @@ const Tv = () => {
         setIsShimmer(false);
         setError(error.response.data.status_message);
       });
-  }, [params.page]);
+  }, [params.page,props.type]);
   function detectSize() {
     setWidth(window.innerWidth);
   }
@@ -69,18 +70,17 @@ const Tv = () => {
         className={parseInt(params.page) === i ? styles.active : styles.pageNO}
         onClick={() => {
           setMovies([]);
-          navigate("/tv/" + i);
+          navigate(`/${goto}/` + i);
         }}
       >
         {i}
       </SwiperSlide>
     );
   }
-
   return (
     <div className={styles.movieContainer}>
       <h2 className={styles.type}>
-        <b>Recommended</b> Movies
+        <b>Recommended</b> {props.type==='trending/tv'?"Tv-Series":"Movie"}
       </h2>
       {error && (
         <>
@@ -94,7 +94,7 @@ const Tv = () => {
         {isShimmer
           ? shimmer
           : movies.map((element, index) => (
-              <Card key={index} element={element} type={"Movie"} />
+              <Card key={index} element={element} type={props.type==='trending/tv'?"Tv-Series":"Movie"} />
             ))}
       </div>
       <div
@@ -112,7 +112,7 @@ const Tv = () => {
               disabled={parseInt(params.page) === 1 && true}
               onClick={() => {
                 setMovies([]);
-                navigate(`/movie/${Number(params.page) - 1}`);
+                navigate(`/${goto}/${Number(params.page) - 1}`);
               }}
             >
               Back
@@ -134,7 +134,8 @@ const Tv = () => {
               disabled={parseInt(params.page) === totalPage && true}
               onClick={() => {
                 setMovies([]);
-                navigate(`/movie/${Number(params.page) + 1}`);
+                // let goto=(props.type.slice(9))
+                navigate(`/${goto}/${Number(params.page) + 1}`);
               }}
             >
               Next
@@ -146,4 +147,4 @@ const Tv = () => {
   );
 };
 
-export default Tv;
+export default Movie;

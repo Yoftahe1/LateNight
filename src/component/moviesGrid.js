@@ -4,7 +4,7 @@ import Card from "./card";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import styles from "./moviesGrid.module.css";
-const MoviesGrid = () => {
+const MoviesGrid = (props) => {
   const [movies, setMovies] = useState([]);
   const [isShimmer, setIsShimmer] = useState(true);
   let shimmer = [];
@@ -19,18 +19,18 @@ const MoviesGrid = () => {
     useEffect(() => {
       axios
         .get(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`
+          `https://api.themoviedb.org/3/trending/${props.type}/day?api_key=${process.env.REACT_APP_API_KEY}`
         )
         .then((response) => {
           setIsShimmer(false)
           setMovies(response.data.results);
         })
         .catch((error) => {});
-    }, []);
+    }, [props.type]);
  
   return (
     <div className={styles.container}>
-      <div className={styles.show}>Movies</div>
+      <div className={styles.type}>{props.type==="movie"?"Movies":"TV-Series"}</div>
       <div className={styles.grid}>
          {isShimmer
           ? shimmer
